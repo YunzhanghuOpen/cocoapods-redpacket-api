@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
 
   s.xcconfig     = {'OTHER_LDFLAGS' => '-ObjC'}
   s.vendored_libraries = 'RedpacketAliAuthAPILib/lib/*.a'
-  s.public_header_files = 'RedpacketAliAuthAPILib/*.h', 'RedpacketAliAuthAPILib/Model/*.h'
+  s.public_header_files = 'RedpacketAliAuthAPILib/*.h'
   s.frameworks = 'CFNetwork'
   s.libraries    = 'z'
   s.dependency 'RedPacketAlipay'
