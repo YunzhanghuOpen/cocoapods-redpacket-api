@@ -26,6 +26,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'CFNetwork'
   s.libraries    = 'z'
   s.dependency 'RedPacketAlipay'
-  #s.resource = “redpacket.bundle"
   s.documentation_url = 'https://docs.yunzhanghu.com/integration/ios.html'
 end
