@@ -21,11 +21,10 @@ Pod::Spec.new do |s|
 
   s.xcconfig     = {'OTHER_LDFLAGS' => '-ObjC'}
   s.vendored_libraries = 'RedpacketAliAuthAPILib/lib/*.a'
-  s.source_files = 'RedpacketAliAuthAPILib/*.{h,m}'
-  s.public_header_files = 'RedpacketAliAuthAPILib/*.h'
-  #s.resources = ['RedpacketAliAuthAPILib/resources/*.bundle']
+  s.source_files = '**/*.{h,m}'
+  s.public_header_files = '**/*.h'
   s.frameworks = 'AudioToolbox', 'CFNetwork'
   s.libraries    = 'z'
-  #s.resource = “redpacket.bundle"
-  s.documentation_url = 'https://new.yunzhanghu.com/integration/ios.html'
+  s.documentation_url = 'https://docs.yunzhanghu.com/integration/ios.html'
+
 end
