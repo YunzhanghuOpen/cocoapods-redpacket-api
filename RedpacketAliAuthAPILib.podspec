@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-  s.name             = 'RedpacketAliAuthLib'
+  s.name             = 'RedpacketAliAuthAPILib'
   s.version          = '2.0.0'
-  s.summary          = 'RedpacketAliAuthLib'
+  s.summary          = 'RedpacketAliAuthAPILib'
   s.description      = <<-DESC
                        * RedpacketAliAuthAPILib.
                        * Redpacket
