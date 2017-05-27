@@ -37,6 +37,7 @@ typedef void(^fetchFinishBlock)(NSError *error, RPPersonalRedpacketInfo *);
 
 @interface RPRedpacketAliauth : NSObject
 
+/// 专属红包用来判断是否是当前用户
 + (RPUserInfo *)redpacketCurrentUser;
 
 /// 获取支付宝授权时需要的签名, string为sign
