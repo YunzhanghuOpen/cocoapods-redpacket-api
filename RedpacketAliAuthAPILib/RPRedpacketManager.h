@@ -10,9 +10,6 @@
 #import "RPRedpacketModel.h"
 #import "RPPersonalRedpacketInfo.h"
 
-/// 注意
-/// 使用前，请先参考API文档
-
 
 /// 返回操作是否成功， 如果error为空则成功，反之失败
 typedef void (^RPProcessResultBlock)(NSError *error);
@@ -63,11 +60,14 @@ typedef void(^fetchFinishBlock)(NSError *error, RPPersonalRedpacketInfo *);
 + (void)generateRedpacketID:(RPProcessResultStringBlock)block;
 
 /// 生成支付宝付款时所需要的订单信息， 返回的string为支付宝订单， 通过string去调用支付宝支付
+/// 如果支付宝未授权则返回错误码60201，需要做支付宝授权，授权完成后继续调用此接口
 + (void)generateRedpacketPayOrder:(NSString *)sendMoney
                     generateBlock:(RPProcessResultStringBlock)block;
 
-/// 发送红包
-/// model的生成是通过【RPRedpacketModel】类里边生成红包model的方法
+/*! 
+ @brief 发送红包
+ @param model 通过【RPRedpacketModel】类里边生成红包model的方法生成
+ */
 + (void)sendRedpacket:(RPRedpacketModel *)model
          andSendBlock:(RPProcessResultObjectBlock)block;
 
@@ -81,21 +81,23 @@ typedef void(^fetchFinishBlock)(NSError *error, RPPersonalRedpacketInfo *);
                andFetchBlock:(RPProcessResultObjectBlock)block;
 
 /**
- * 拆红包方法
- *
- * 成功状态：
- * 1. 抢到了红包，判断条件：receiveMoney不等于0。
- *
- * 错误状态：
- * 1. 此红包不属于您，错误码，3012
- * 2. 没抢到红包（红包已经领取完），错误码：3013
- * 3. 你已领取此红包，醋五马：3014
- * 4. 支付宝未授权，需要先调用`RPRedpacketAliauth`相关方法，进行支付宝授权，授权已上传成功后，方可继续调用抢红包方法。
+ @brief 拆红包方法
+ 
+ @discussion
+    成功状态：
+    1. 抢到了红包，判断条件：receiveMoney不等于0
+ 
+    错误状态：
+    1. 此红包不属于您，错误码，3012
+    2. 没抢到红包（红包已经领取完），错误码：3013
+    3. 你已领取此红包，醋五马：3014
+    4. 支付宝未授权，需要先调用`RPRedpacketAliauth`相关方法，进行支付宝授权，授权已上传成功后，方可继续调用抢红包方法
  */
 + (void)grabRedpacket:(RPRedpacketModel *)model
          andGrabBlock:(RPProcessResultObjectBlock)block;
 
 /**
+ * discussion
  * 查询红包详情
  * 如果存在多页数据，则重复调用，成功后model.takenUsers会追加相应的数据。
  *
