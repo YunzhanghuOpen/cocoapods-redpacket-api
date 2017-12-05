@@ -65,7 +65,7 @@ typedef void(^fetchFinishBlock)(NSError *error, RPPersonalRedpacketInfo *);
                     generateBlock:(RPProcessResultStringBlock)block;
 
 // 查询支付宝订单是否支付成功，发送红包失败的时候，调用查询
-+ (void)fecchAlipayIsSuccess:(RPProcessResultBlock)block;
++ (void)fecchAlipayBillIsSuccess:(RPProcessResultBlock)block;
 
 /*! 
  @brief 发送红包
