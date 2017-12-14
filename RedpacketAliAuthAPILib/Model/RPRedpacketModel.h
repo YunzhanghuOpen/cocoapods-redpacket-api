@@ -91,7 +91,7 @@ typedef NS_ENUM(NSInteger, RPRedpacketStatusType) {
 @property (nonatomic, copy,   readonly) NSString *takenCostTime;
 
 
-// 清空takenUsers数组
+// 清空takenUsers数组 关闭红包详情页时，可以调用此方法。
 - (void)clearTakenUsers;
 
 /*!
